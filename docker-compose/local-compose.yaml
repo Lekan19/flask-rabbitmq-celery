@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  messaging:
+    hostname: rabbitmq
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=addition
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=nopassword
+#    networks:
+#      - defaults
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  app:
+    hostname: addition-app
+    image: celery-add:latest
+#    networks:
+#      - defaults
+
+  api:
+    hostname: addition-app
+    image: api-add:latest
+    ports:
+      - "8000:8000"

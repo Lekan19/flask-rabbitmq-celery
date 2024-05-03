@@ -1,0 +1,3 @@
+I want to create an API that has a route where two
+integers data are sent and send the data to a decoupled Messaging service.
+A worker adds the two integers together.
